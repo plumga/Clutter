@@ -22,7 +22,7 @@ namespace Clutter
     {
         public const string PluginGUID = "com.plumga.Clutter";
         public const string PluginName = "Clutter";
-        public const string PluginVersion = "0.0.3";
+        public const string PluginVersion = "0.0.4";
         private AssetBundle assetclutter;
         private AssetBundle assetdeco;
         private AssetBundle assetfurniture;
@@ -176,15 +176,36 @@ namespace Clutter
 
         //assetclutter
 
-          private void LoadTable()
-           { 
-               PieceManager.Instance.AddPieceTable(assetclutter.LoadAsset<GameObject>("_ClutterPieceTable"));
-              LoadClutterTool();
+        //  private void LoadTable()
+       //    { 
+        //       PieceManager.Instance.AddPieceTable(assetclutter.LoadAsset<GameObject>("_ClutterPieceTable"));
+       //       LoadClutterTool();
 
 
-          }
+      //    }
 
-       
+        private void LoadTable()
+        {
+            // Add a custom piece table with custom categories
+            var table_prefab = assetclutter.LoadAsset<GameObject>("_PlantitPieceTable");
+            CustomPieceTable clutter_table = new CustomPieceTable(table_prefab,
+                new PieceTableConfig
+                {
+                    CanRemovePieces = false,
+                    UseCategories = false,
+                    UseCustomCategories = true,
+                    CustomCategories = new string[]
+                    {
+                        "Sculptures", "Kitchen", "Decor", "Furniture"
+                    }
+                }
+            );
+            PieceManager.Instance.AddPieceTable(clutter_table);
+
+            LoadClutterTool();
+        }
+
+
 
 
         private void LoadClutterTool()
@@ -217,6 +238,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -234,6 +256,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -252,6 +275,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -273,6 +297,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -291,6 +316,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -309,6 +335,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -327,6 +354,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -345,6 +373,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -363,6 +392,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -383,6 +413,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -401,6 +432,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -419,6 +451,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -436,6 +469,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -455,6 +489,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -472,6 +507,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -491,6 +527,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -509,6 +546,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -529,6 +567,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -546,6 +585,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -563,6 +603,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -580,6 +621,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -597,6 +639,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -615,6 +658,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -633,6 +677,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -651,6 +696,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -669,6 +715,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -688,6 +735,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -706,6 +754,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -724,6 +773,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -744,6 +794,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -762,6 +813,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -779,6 +831,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -796,6 +849,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -813,6 +867,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -832,6 +887,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -850,6 +906,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -866,6 +923,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -882,6 +940,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -898,6 +957,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -914,6 +974,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -931,6 +992,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -955,6 +1017,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -972,6 +1035,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -989,6 +1053,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1006,6 +1071,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1025,6 +1091,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1042,6 +1109,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1061,6 +1129,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1080,6 +1149,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1097,6 +1167,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1116,6 +1187,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1134,6 +1206,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1152,6 +1225,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1171,6 +1245,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1190,6 +1265,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1208,6 +1284,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1228,6 +1305,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1246,6 +1324,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1266,6 +1345,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1283,6 +1363,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1300,6 +1381,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1320,6 +1402,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1339,6 +1422,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Furniture",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1362,6 +1446,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1382,6 +1467,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1400,6 +1486,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1418,6 +1505,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1436,6 +1524,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1453,6 +1542,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1471,6 +1561,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1488,6 +1579,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1506,6 +1598,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1523,6 +1616,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1542,6 +1636,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1565,6 +1660,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1583,6 +1679,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1601,6 +1698,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1619,6 +1717,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1638,6 +1737,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1657,6 +1757,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1674,6 +1775,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1692,6 +1794,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1711,6 +1814,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1729,6 +1833,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1746,6 +1851,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1764,6 +1870,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1782,6 +1889,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1800,6 +1908,7 @@ namespace Clutter
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
@@ -1810,7 +1919,7 @@ namespace Clutter
         }
 
 
-
+        
 
 
     }
