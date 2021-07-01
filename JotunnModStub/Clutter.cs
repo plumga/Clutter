@@ -82,6 +82,7 @@ namespace Clutter
             comb();
             straw();
             winebottle();
+            BarberPole();
             //death
             grave();
             bonepile();
@@ -161,6 +162,8 @@ namespace Clutter
             statueevilsmall();
             statuehare();
             statueseed();
+
+          
         }
 
 
@@ -187,11 +190,11 @@ namespace Clutter
         private void LoadTable()
         {
             // Add a custom piece table with custom categories
-            var table_prefab = assetclutter.LoadAsset<GameObject>("_PlantitPieceTable");
+            var table_prefab = assetclutter.LoadAsset<GameObject>("_ClutterPieceTable");
             CustomPieceTable clutter_table = new CustomPieceTable(table_prefab,
                 new PieceTableConfig
                 {
-                    CanRemovePieces = false,
+                    CanRemovePieces = true,
                     UseCategories = false,
                     UseCustomCategories = true,
                     CustomCategories = new string[]
@@ -205,7 +208,7 @@ namespace Clutter
             LoadClutterTool();
         }
 
-
+        
 
 
         private void LoadClutterTool()
@@ -877,6 +880,28 @@ namespace Clutter
             PieceManager.Instance.AddPiece(winebottle);
         }
 
+        private void BarberPole()
+        {
+            var bpfab = assetdeco.LoadAsset<GameObject>("$custompiece_barberpole");
+
+            var bp = new CustomPiece(bpfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Bronze", Amount = 3, Recover = true},
+                        new RequirementConfig {Item = "Flint", Amount = 3, Recover = true},
+                        new RequirementConfig {Item = "Blueberries", Amount = 3, Recover = true},
+                        new RequirementConfig {Item = "Raspberry", Amount = 3, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bp);
+        }
+
+
 
         //death
         private void grave()
@@ -1191,7 +1216,8 @@ namespace Clutter
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "FineWood", Amount = 5, Recover = true}
+                        new RequirementConfig {Item = "FineWood", Amount = 10, Recover = true},
+                        new RequirementConfig {Item = "Bronze", Amount = 5, Recover = true}
                     }
                 });
             PieceManager.Instance.AddPiece(chest2);
@@ -1210,7 +1236,8 @@ namespace Clutter
                     AllowedInDungeons = false,
                     Requirements = new[]
                     {
-                        new RequirementConfig {Item = "Stone", Amount = 5, Recover = true}
+                        new RequirementConfig {Item = "Stone", Amount = 10, Recover = true},
+                        new RequirementConfig {Item = "Bronze", Amount = 5, Recover = true}
                     }
                 });
             PieceManager.Instance.AddPiece(chest1);
@@ -1919,7 +1946,7 @@ namespace Clutter
         }
 
 
-        
+      
 
 
     }
