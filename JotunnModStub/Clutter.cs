@@ -13,6 +13,8 @@ using Jotunn.Managers;
 using Jotunn.Entities;
 using Jotunn.Utils;
 using Logger = Jotunn.Logger;
+using System;
+using Object = UnityEngine.Object;
 
 namespace Clutter
 {
@@ -35,7 +37,7 @@ namespace Clutter
 
         private void Awake()
         {
-
+            SetupPlacementHooks();
             LoadAssets();
             LoadTable();
 
@@ -166,6 +168,19 @@ namespace Clutter
           
         }
 
+        private void SetupPlacementHooks()
+        {
+            On.Player.UpdatePlacementGhost += OnUpdatePlacementGhost;
+        }
+
+        private void OnUpdatePlacementGhost(On.Player.orig_UpdatePlacementGhost orig, Player self, bool flashGuardStone)
+        {
+            orig(self, flashGuardStone);
+            if(self && self.m_placementMarkerInstance && self.m_buildPieces.name == "_ClutterPieceTable")
+            {
+                Object.Destroy(self.m_placementMarkerInstance);
+            }
+        }
 
         private void LoadAssets()
         {
