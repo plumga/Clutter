@@ -30,14 +30,13 @@ namespace Clutter
         private AssetBundle assetfurniture;
         private AssetBundle assetkitchen;
         private AssetBundle assetsculptures;
-
-
-
-
+        public static ConfigEntry<float> placementOffsetIncrementConfig;
 
         private void Awake()
         {
-            SetupPlacementHooks();
+            Patches.SetupPlacementHooks();
+
+            SetupConfig();
             LoadAssets();
             LoadTable();
 
@@ -168,18 +167,12 @@ namespace Clutter
           
         }
 
-        private void SetupPlacementHooks()
-        {
-            On.Player.UpdatePlacementGhost += OnUpdatePlacementGhost;
-        }
+        private void SetupConfig()
+        { 
+            placementOffsetIncrementConfig = Config.Bind(
+                "Placement", "Placement change increment", 0.01f,
+                new ConfigDescription("Placement change when holding Ctrl and/or Alt while scrolling using the Clutter Bucket"));
 
-        private void OnUpdatePlacementGhost(On.Player.orig_UpdatePlacementGhost orig, Player self, bool flashGuardStone)
-        {
-            orig(self, flashGuardStone);
-            if(self && self.m_placementMarkerInstance && self.m_buildPieces.name == "_ClutterPieceTable")
-            {
-                Object.Destroy(self.m_placementMarkerInstance);
-            }
         }
 
         private void LoadAssets()
@@ -1960,8 +1953,6 @@ namespace Clutter
             PieceManager.Instance.AddPiece(statueseed);
         }
 
-
-      
 
 
     }
