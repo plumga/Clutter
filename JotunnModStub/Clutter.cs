@@ -130,7 +130,9 @@ namespace Clutter
             ///////kitchen
             //plates
             bowl();
+            bowlbig();
             plate();
+            platebig();
             //mugs
             mug1();
             mug2();
@@ -231,7 +233,7 @@ namespace Clutter
                     MinStationLevel = 1,
                     Requirements = new[]
                     {
-                        new RequirementConfig { Item = "Wood", Amount = 2}
+                        new RequirementConfig { Item = "Wood", Amount = 2, AmountPerLevel = 1}
                     }
                 });
             ItemManager.Instance.AddItem(ctool);
@@ -1491,7 +1493,23 @@ namespace Clutter
             PieceManager.Instance.AddPiece(bowl);
         }
 
+        private void bowlbig()
+        {
+            var bowlbfab = assetkitchen.LoadAsset<GameObject>("$custompiece_dunmr_bowlbig");
 
+            var bowlb = new CustomPiece(bowlbfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bowlb);
+        }
 
 
         private void plate()
@@ -1510,6 +1528,24 @@ namespace Clutter
                     }
                 });
             PieceManager.Instance.AddPiece(plate);
+        }
+
+        private void platebig()
+        {
+            var platebfab = assetkitchen.LoadAsset<GameObject>("$custompiece_dunmr_platebig");
+
+            var plateb = new CustomPiece(platebfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Kitchen",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(plateb);
         }
 
         //mugs
