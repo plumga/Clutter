@@ -48,7 +48,7 @@ namespace Clutter
         {
             orig(self, takeInput, dt);
 
-            if (self.m_placementGhost && takeInput && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (self.m_placementGhost && takeInput && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
                 if (scrollWheel != 0f)
