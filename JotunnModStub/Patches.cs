@@ -37,7 +37,7 @@ namespace Clutter
         private static void OnUpdatePlacementGhost(On.Player.orig_UpdatePlacementGhost orig, Player self, bool flashGuardStone)
         {
             orig(self, flashGuardStone);
-            if (self.m_placementMarkerInstance && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (self.m_placementMarkerInstance && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 Object.Destroy(self.m_placementMarkerInstance);
             }
@@ -48,7 +48,7 @@ namespace Clutter
         {
             orig(self, takeInput, dt);
 
-            if (self.m_placementGhost && takeInput && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (self.m_placementGhost && takeInput && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
                 if (scrollWheel != 0f)
