@@ -9,8 +9,8 @@ namespace Clutter
          
         public static void SetupPlacementHooks()
         {
-            On.Player.SetupPlacementGhost += OnSetupPlacementGhost;
             On.Player.UpdatePlacementGhost += OnUpdatePlacementGhost;
+            On.Player.SetupPlacementGhost += OnSetupPlacementGhost;
             On.Player.PieceRayTest += OnPieceRayTest;
             On.Player.UpdatePlacement += OnUpdatePlacement;
         }
@@ -26,7 +26,7 @@ namespace Clutter
         private static bool OnPieceRayTest(On.Player.orig_PieceRayTest orig, Player self, out Vector3 point, out Vector3 normal, out Piece piece, out Heightmap heightmap, out Collider waterSurface, bool water)
         {
             bool result = orig(self, out point, out normal, out piece, out heightmap, out waterSurface, water);
-            if (result && PlacementOffset != Vector3.zero && self.m_placementGhost)
+            if (Clutter.placementOffsetEnabledConfig.Value && result && PlacementOffset != Vector3.zero && self.m_placementGhost)
             {
                 point += self.m_placementGhost.transform.TransformDirection(PlacementOffset); // TransformDirection makes the offset relative to the orientation of the piece instead of to the world
             }
@@ -37,7 +37,7 @@ namespace Clutter
         private static void OnUpdatePlacementGhost(On.Player.orig_UpdatePlacementGhost orig, Player self, bool flashGuardStone)
         {
             orig(self, flashGuardStone);
-            if (self.m_placementMarkerInstance && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (Clutter.hidePlaceMarkerConfig.Value && self.m_placementMarkerInstance && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 Object.Destroy(self.m_placementMarkerInstance);
             }
@@ -48,7 +48,7 @@ namespace Clutter
         {
             orig(self, takeInput, dt);
 
-            if (self.m_placementGhost && takeInput && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (Clutter.placementOffsetEnabledConfig.Value && self.m_placementGhost && takeInput && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
                 if (scrollWheel != 0f)
