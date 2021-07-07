@@ -31,6 +31,8 @@ namespace Clutter
         private AssetBundle assetkitchen;
         private AssetBundle assetsculptures;
         public static ConfigEntry<float> placementOffsetIncrementConfig;
+        public static ConfigEntry<bool> placementOffsetEnabledConfig;
+        public static ConfigEntry<bool> hidePlaceMarkerConfig;
 
         private void Awake()
         {
@@ -172,6 +174,14 @@ namespace Clutter
             placementOffsetIncrementConfig = Config.Bind(
                 "Placement", "Placement change increment", 0.01f,
                 new ConfigDescription("Placement change when holding Ctrl and/or Alt while scrolling using the Clutter Bucket"));
+
+            placementOffsetEnabledConfig = Config.Bind(
+             "Placement", "Enable placement change with Ctrl + Alt", true,
+             new ConfigDescription("Enable placement change when holding Ctrl and/or Alt while scrolling using the Clutter Bucket"));
+            
+            hidePlaceMarkerConfig = Config.Bind(
+             "Placement", "Hide placement marker", true,
+             new ConfigDescription("Hide the yellow placement marker while using the Clutter Bucket"));
 
         }
 
