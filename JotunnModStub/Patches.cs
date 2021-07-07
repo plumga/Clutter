@@ -37,7 +37,7 @@ namespace Clutter
         private static void OnUpdatePlacementGhost(On.Player.orig_UpdatePlacementGhost orig, Player self, bool flashGuardStone)
         {
             orig(self, flashGuardStone);
-            if (self.m_placementMarkerInstance && self.m_buildPieces.name == "_ClutterPieceTable")
+            if (self.m_placementMarkerInstance && self.m_buildPieces && self.m_buildPieces.name == "_ClutterPieceTable")
             {
                 Object.Destroy(self.m_placementMarkerInstance);
             }
