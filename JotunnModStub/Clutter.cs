@@ -24,12 +24,13 @@ namespace Clutter
     {
         public const string PluginGUID = "com.plumga.Clutter";
         public const string PluginName = "Clutter";
-        public const string PluginVersion = "0.0.6";
+        public const string PluginVersion = "0.0.8";
         private AssetBundle assetclutter;
         private AssetBundle assetdeco;
         private AssetBundle assetfurniture;
         private AssetBundle assetkitchen;
         private AssetBundle assetsculptures;
+        private AssetBundle new1;
         public static ConfigEntry<float> placementOffsetIncrementConfig;
         public static ConfigEntry<bool> placementOffsetEnabledConfig;
         public static ConfigEntry<bool> hidePlaceMarkerConfig;
@@ -108,6 +109,7 @@ namespace Clutter
             coolchair();
             stool();
             swing();
+            swingingswing();
             //tables
             roundtable();
             tablewithcloth();
@@ -117,6 +119,7 @@ namespace Clutter
             //shelves
             shelf();
             shelfwbooks();
+            shelfwbooksdouble();
             weaponrack();
             weaponrackfull();
             //misc
@@ -168,7 +171,41 @@ namespace Clutter
             statuehare();
             statueseed();
 
-          
+
+            //////new1
+            //furniture
+            bookstorage();
+            bookstoragepublic();
+            fancychestpublic();
+            stonechestpublic();
+
+            //deco
+            hweb();
+            tweb();
+            vweb();
+
+            journal();
+            openbook();
+            poetrybook1H();
+            poetrybook1V();
+            poetrybook2H();
+            poetrybook2V();
+            stackedbooks1();
+            stackedbooks2();
+
+            globe1();
+            globe2();
+            map1();
+            map2();
+            map3();
+
+            dragonstatuesmall();
+            dragonstatuelarge();
+            Bdragonstatuesmall();
+            Bdragonstatuelarge();
+
+
+
         }
 
         private void SetupConfig()
@@ -194,6 +231,7 @@ namespace Clutter
             assetfurniture = AssetUtils.LoadAssetBundleFromResources("furniture", typeof(Clutter).Assembly);
             assetkitchen = AssetUtils.LoadAssetBundleFromResources("kitchen", typeof(Clutter).Assembly);
             assetsculptures = AssetUtils.LoadAssetBundleFromResources("sculptures", typeof(Clutter).Assembly);
+            new1 = AssetUtils.LoadAssetBundleFromResources("new1", typeof(Clutter).Assembly);
 
         }
 
@@ -249,6 +287,460 @@ namespace Clutter
             ItemManager.Instance.AddItem(ctool);
 
         }
+
+        
+
+        /////new1
+        //furniture
+        private void bookstorage()
+        {
+            var bookstoragefab = new1.LoadAsset<GameObject>("$custompiece_booksecretstorage");
+
+            var bookstorage = new CustomPiece(bookstoragefab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bookstorage);
+        }
+
+        private void bookstoragepublic()
+        {
+            var bookstoragepfab = new1.LoadAsset<GameObject>("$custompiece_booksecretstorage_public");
+
+            var bookstoragep = new CustomPiece(bookstoragepfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bookstoragep);
+        }
+
+        private void fancychestpublic()
+        {
+            var fancychestpfab = new1.LoadAsset<GameObject>("$custompiece_fancychest_public");
+
+            var fancychestp = new CustomPiece(fancychestpfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "FineWood", Amount = 5, Recover = true},
+                        new RequirementConfig {Item = "Bronze", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(fancychestp);
+        }
+
+        private void stonechestpublic()
+        {
+            var stonechestpfab = new1.LoadAsset<GameObject>("$custompiece_stonechest_public");
+
+            var stonechestp = new CustomPiece(stonechestpfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Stone", Amount = 5, Recover = true},
+                        new RequirementConfig {Item = "Bronze", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(stonechestp);
+        }
+
+        //decor
+
+        private void hweb()
+        {
+            var hwebfab = new1.LoadAsset<GameObject>("$custompiece_horizontalweb");
+
+            var hweb = new CustomPiece(hwebfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "BoneFragments", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(hweb);
+        }
+
+        private void tweb()
+        {
+            var twebfab = new1.LoadAsset<GameObject>("$custompiece_tunnelweb");
+
+            var tweb = new CustomPiece(twebfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "BoneFragments", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(tweb);
+        }
+
+        private void vweb()
+        {
+            var vwebfab = new1.LoadAsset<GameObject>("$custompiece_verticalweb");
+
+            var vweb = new CustomPiece(vwebfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "BoneFragments", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(vweb);
+        }
+
+        //books
+        private void journal()
+        {
+            var journalfab = new1.LoadAsset<GameObject>("$custompiece_journal");
+
+            var journal = new CustomPiece(journalfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(journal);
+        }
+
+        private void openbook()
+        {
+            var openbookfab = new1.LoadAsset<GameObject>("$custompiece_openbook");
+
+            var openbook = new CustomPiece(openbookfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(openbook);
+        }
+
+
+        private void poetrybook1H()
+        {
+            var pb1hfab = new1.LoadAsset<GameObject>("$custompiece_poetrybook1H");
+
+            var pb1h = new CustomPiece(pb1hfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(pb1h);
+        }
+
+        private void poetrybook1V()
+        {
+            var pb1vfab = new1.LoadAsset<GameObject>("$custompiece_poetrybook1V");
+
+            var pb1v = new CustomPiece(pb1vfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(pb1v);
+        }
+
+        private void poetrybook2H()
+        {
+            var pb2hfab = new1.LoadAsset<GameObject>("$custompiece_poetrybook2H");
+
+            var pb2h = new CustomPiece(pb2hfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(pb2h);
+        }
+
+        private void poetrybook2V()
+        {
+            var pb2vfab = new1.LoadAsset<GameObject>("$custompiece_poetrybook2V");
+
+            var pb2v = new CustomPiece(pb2vfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(pb2v);
+        }
+
+
+        private void stackedbooks1()
+        {
+            var stackedbooks1fab = new1.LoadAsset<GameObject>("$custompiece_stackedpoetrybooks1");
+
+            var stackedbooks1 = new CustomPiece(stackedbooks1fab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 6, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(stackedbooks1);
+        }
+
+        private void stackedbooks2()
+        {
+            var stackedbooks2fab = new1.LoadAsset<GameObject>("$custompiece_stackedpoetrybooks2");
+
+            var stackedbooks2 = new CustomPiece(stackedbooks2fab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 6, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(stackedbooks2);
+        }
+
+
+        private void globe1()
+        {
+            var globefab = new1.LoadAsset<GameObject>("$custompiece_globe1");
+
+            var globe = new CustomPiece(globefab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 3, Recover = true},
+                        new RequirementConfig {Item = "Coal", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(globe);
+        }
+
+        private void globe2()
+        {
+            var globe2fab = new1.LoadAsset<GameObject>("$custompiece_globe2");
+
+            var globe2 = new CustomPiece(globe2fab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 6, Recover = true},
+                        new RequirementConfig {Item = "Iron", Amount = 4, Recover = true},
+                        new RequirementConfig {Item = "Coal", Amount = 2, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(globe2);
+        }
+
+        private void map1()
+        {
+            var mapfab = new1.LoadAsset<GameObject>("$custompiece_map1");
+
+            var map = new CustomPiece(mapfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true},
+                        new RequirementConfig {Item = "Coal", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(map);
+        }
+
+        private void map2()
+        {
+            var map2fab = new1.LoadAsset<GameObject>("$custompiece_map2");
+
+            var map2 = new CustomPiece(map2fab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 2, Recover = true},
+                        new RequirementConfig {Item = "Coal", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(map2);
+        }
+
+        private void map3()
+        {
+            var map3fab = new1.LoadAsset<GameObject>("$custompiece_map3");
+
+            var map3 = new CustomPiece(map3fab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Decor",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 4, Recover = true},
+                        new RequirementConfig {Item = "Coal", Amount = 1, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(map3);
+        }
+
+
+        private void dragonstatuesmall()
+        {
+            var dragstatfab = new1.LoadAsset<GameObject>("$custompiece_dragonstatuesmall");
+
+            var dragstat = new CustomPiece(dragstatfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Bronze", Amount = 10, Recover = true},
+                        new RequirementConfig {Item = "Copper", Amount = 10, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(dragstat);
+        }
+
+        private void dragonstatuelarge()
+        {
+            var dragstatlfab = new1.LoadAsset<GameObject>("$custompiece_dragonstatuelarge");
+
+            var dragstatl = new CustomPiece(dragstatlfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Bronze", Amount = 25, Recover = true},
+                        new RequirementConfig {Item = "Copper", Amount = 25, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(dragstatl);
+        }
+
+        private void Bdragonstatuesmall()
+        {
+            var bdragstatfab = new1.LoadAsset<GameObject>("$custompiece_blackdragonstatuesmall");
+
+            var bdragstat = new CustomPiece(bdragstatfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Iron", Amount = 10, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bdragstat);
+        }
+
+        private void Bdragonstatuelarge()
+        {
+            var bdragstatlfab = new1.LoadAsset<GameObject>("$custompiece_blackdragonstatuelarge");
+
+            var bdragstatl = new CustomPiece(bdragstatlfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Sculptures",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Iron", Amount = 30, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bdragstatl);
+        }
+
 
 
         /////deco
@@ -1184,6 +1676,24 @@ namespace Clutter
             PieceManager.Instance.AddPiece(swing);
         }
 
+        private void swingingswing()
+        {
+            var swingtestfab = assetfurniture.LoadAsset<GameObject>("$custompiece_swingingswing");
+
+            var swingtest = new CustomPiece(swingtestfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 10, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(swingtest);
+        }
+
 
         //chairs
         private void roundtable()
@@ -1303,6 +1813,27 @@ namespace Clutter
                 });
             PieceManager.Instance.AddPiece(bookshelf);
         }
+
+        private void shelfwbooksdouble()
+        {
+            var bookshelfdfab = assetfurniture.LoadAsset<GameObject>("$custompiece_dunmr_shelfwithbooksdouble");
+
+            var bookshelfd = new CustomPiece(bookshelfdfab,
+                new PieceConfig
+                {
+                    PieceTable = "_ClutterPieceTable",
+                    Category = "Amenities",
+                    AllowedInDungeons = false,
+                    Requirements = new[]
+                    {
+                        new RequirementConfig {Item = "Wood", Amount = 20, Recover = true},
+                        new RequirementConfig {Item = "FineWood", Amount = 20, Recover = true},
+                        new RequirementConfig {Item = "BronzeNails", Amount = 12, Recover = true}
+                    }
+                });
+            PieceManager.Instance.AddPiece(bookshelfd);
+        }
+
 
         private void weaponrack()
         {
