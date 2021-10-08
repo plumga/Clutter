@@ -322,7 +322,7 @@ namespace Clutter
         {
             var largesignfab = new2.LoadAsset<GameObject>("$custompiece_largesign");
 
-            var largesign = new CustomPiece(largesignfab, fixReference: true,
+            var largesign = new CustomPiece(largesignfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -752,7 +752,7 @@ namespace Clutter
         {
             var journalfab = new1.LoadAsset<GameObject>("$custompiece_journal");
 
-            var journal = new CustomPiece(journalfab, fixReference: true,
+            var journal = new CustomPiece(journalfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1152,7 +1152,7 @@ namespace Clutter
         {
             var candlelfab = assetdeco.LoadAsset<GameObject>("$custompiece_candlelantern");
 
-            var candlel = new CustomPiece(candlelfab, fixReference: true,
+            var candlel = new CustomPiece(candlelfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1249,7 +1249,7 @@ namespace Clutter
         {
             var diaryfab = assetdeco.LoadAsset<GameObject>("$custompiece_diary");
 
-            var diary = new CustomPiece(diaryfab, fixReference: true,
+            var diary = new CustomPiece(diaryfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1268,7 +1268,7 @@ namespace Clutter
         {
             var diarypfab = assetdeco.LoadAsset<GameObject>("$custompiece_diarypage");
 
-            var diaryp = new CustomPiece(diarypfab, fixReference: true,
+            var diaryp = new CustomPiece(diarypfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1721,7 +1721,7 @@ namespace Clutter
         {
             var bpfab = assetdeco.LoadAsset<GameObject>("$custompiece_barberpole");
 
-            var bp = new CustomPiece(bpfab, fixReference: true,
+            var bp = new CustomPiece(bpfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1745,7 +1745,7 @@ namespace Clutter
         {
             var gravefab = assetdeco.LoadAsset<GameObject>("$custompiece_gravestone");
 
-            var grave = new CustomPiece(gravefab, fixReference: true,
+            var grave = new CustomPiece(gravefab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1764,7 +1764,7 @@ namespace Clutter
         {
             var bonepilefab = assetdeco.LoadAsset<GameObject>("$custompiece_bonepile");
 
-            var bonepile = new CustomPiece(bonepilefab, fixReference: true,
+            var bonepile = new CustomPiece(bonepilefab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1781,7 +1781,7 @@ namespace Clutter
         {
             var bones1fab = assetdeco.LoadAsset<GameObject>("$custompiece_bones1");
 
-            var bones1 = new CustomPiece(bones1fab, fixReference: true,
+            var bones1 = new CustomPiece(bones1fab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1798,7 +1798,7 @@ namespace Clutter
         {
             var bones2fab = assetdeco.LoadAsset<GameObject>("$custompiece_bones2");
 
-            var bones2 = new CustomPiece(bones2fab, fixReference: true,
+            var bones2 = new CustomPiece(bones2fab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1815,7 +1815,7 @@ namespace Clutter
         {
             var bones3fab = assetdeco.LoadAsset<GameObject>("$custompiece_bones3");
 
-            var bones3 = new CustomPiece(bones3fab, fixReference: true,
+            var bones3 = new CustomPiece(bones3fab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1832,7 +1832,7 @@ namespace Clutter
         {
             var bones4fab = assetdeco.LoadAsset<GameObject>("$custompiece_bones4");
 
-            var bones4 = new CustomPiece(bones4fab, fixReference: true,
+            var bones4 = new CustomPiece(bones4fab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1850,7 +1850,7 @@ namespace Clutter
         {
             var skullfab = assetdeco.LoadAsset<GameObject>("$custompiece_skull");
 
-            var skull = new CustomPiece(skullfab, fixReference: true,
+            var skull = new CustomPiece(skullfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -1929,7 +1929,7 @@ namespace Clutter
         {
             var standstfab = assetfurniture.LoadAsset<GameObject>("$custompiece_itemstand_stake");
 
-            var standst = new CustomPiece(standstfab, fixReference: true,
+            var standst = new CustomPiece(standstfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2183,7 +2183,7 @@ namespace Clutter
         {
             var weaponrackfullfab = assetfurniture.LoadAsset<GameObject>("$custompiece_weaponrack_full");
 
-            var weaponrackfull = new CustomPiece(weaponrackfullfab, fixReference: true,
+            var weaponrackfull = new CustomPiece(weaponrackfullfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2301,7 +2301,7 @@ namespace Clutter
         {
             var clockfab = assetfurniture.LoadAsset<GameObject>("$custompiece_cuckooclock");
 
-            var clock = new CustomPiece(clockfab, fixReference: true,
+            var clock = new CustomPiece(clockfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2747,7 +2747,7 @@ namespace Clutter
         {
             var corgifab = assetsculptures.LoadAsset<GameObject>("$custompiece_statuecorgi");
 
-            var corgi = new CustomPiece(corgifab, fixReference: true,
+            var corgi = new CustomPiece(corgifab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2766,7 +2766,7 @@ namespace Clutter
         {
             var statuedeerfab = assetsculptures.LoadAsset<GameObject>("$custompiece_statuedeer");
 
-            var statuedeer = new CustomPiece(statuedeerfab, fixReference: true,
+            var statuedeer = new CustomPiece(statuedeerfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2784,7 +2784,7 @@ namespace Clutter
         {
             var statueevillfab = assetsculptures.LoadAsset<GameObject>("$custompiece_statueevil_large");
 
-            var statueevill = new CustomPiece(statueevillfab, fixReference: true,
+            var statueevill = new CustomPiece(statueevillfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2803,7 +2803,7 @@ namespace Clutter
         {
             var statueevilsfab = assetsculptures.LoadAsset<GameObject>("$custompiece_statueevil_small");
 
-            var statueevils = new CustomPiece(statueevilsfab, fixReference: true,
+            var statueevils = new CustomPiece(statueevilsfab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
@@ -2822,7 +2822,7 @@ namespace Clutter
         {
             var statueharefab = assetsculptures.LoadAsset<GameObject>("$custompiece_statuehare");
 
-            var statuehare = new CustomPiece(statueharefab, fixReference: true,
+            var statuehare = new CustomPiece(statueharefab, fixReference: false,
                 new PieceConfig
                 {
                     PieceTable = "_ClutterPieceTable",
