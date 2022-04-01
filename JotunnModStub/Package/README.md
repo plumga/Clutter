@@ -15,13 +15,15 @@ Lots of decor items, some furniture, etc.
 Thanks to sbtoonz, RockerKitten, Gravebear, and MarcoPogo for all the help! Couldn't have done it without you guys :D
 
 Model credits:
-Dunmr
-Poly
-Sketchfab - Suricacto, salo_nya, LenaGiul, Anabelle Fibonacci, TraianDumbrava, padmadev2005, Multipainkiller Studio, Johana-PS
-Unity Asset Store - 3dFoin, DEXSOFT-Games/3DModels-textures, ELargin
-ArtStation - Ehsan Dabbaghi
+-Dunmr
+-Poly
+-Sketchfab - Suricacto, salo_nya, LenaGiul, Anabelle Fibonacci, TraianDumbrava, padmadev2005, Multipainkiller Studio, Johana-PS, Angellise, Sophie, Serafim123, henriquef868, Coleramanda, Arian_Franzen, shedmon, zeki.kalagoglu, lunea, Elyse Darby, zhixson, Reidicus, Lonit, Taenshi, sotirissmix
+-Unity Asset Store - 3dFoin, DEXSOFT-Games/3DModels-textures, ELargin, Elcanetay, reach the enD
+-ArtStation - Ehsan Dabbaghi
 
 ## Changelog
+V0.1.2 - added new stuff! yay couches!
+V0.1.1 - added MMHOOK as a dependency since it may be removed as a dependency of JVL soon.
 V0.1.0 - added new sculptures and a sign.
 V0.0.9 - (Thunderstore Only) updated JVL and BepInEx dependecy strings, removed build expansion as a dependency (no longer needed after Hearth & Home)
 V0.0.8 - added more clutter, updated to Jotunn 2.2.3, more config options
