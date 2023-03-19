@@ -24,7 +24,7 @@ namespace Clutter
     {
         public const string PluginGUID = "com.plumga.Clutter";
         public const string PluginName = "Clutter";
-        public const string PluginVersion = "0.1.2";
+        public const string PluginVersion = "0.1.4";
         private AssetBundle assetclutter;
         private AssetBundle assetdeco;
         private AssetBundle assetfurniture;
